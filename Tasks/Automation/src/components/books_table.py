@@ -18,7 +18,7 @@ class BooksTable(BookStorePage):
         self.enter_request(prompt)
         book_titles = []
         for book in self.table_items_title:
-            book_titles.append(book.text)
+            book_titles.append(book.get(query.text))
         if not book_titles:
             raise Exception("No books found")
         return book_titles
