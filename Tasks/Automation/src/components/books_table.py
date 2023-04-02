@@ -19,6 +19,9 @@ class BooksTable(BookStorePage):
         book_titles = []
         for book in self.table_items_title:
             book_titles.append(book.text)
+        if not book_titles:
+            raise Exception("No books found")
+        return book_titles
 
     def filter_book_by_filter_name(self, filter_name: str):
         self.filter_field_name = s(by.xpath(f"// div[contains(text(), '{filter_name}')]")).click()
