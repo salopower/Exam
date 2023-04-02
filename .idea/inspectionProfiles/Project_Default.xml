@@ -30,6 +30,7 @@
       <option name="ignoredIdentifiers">
         <list>
           <option value="Tasks.Automation.tests.test_book_store.selene" />
+          <option value="selene.core.entity.Element.*" />
         </list>
       </option>
     </inspection_tool>
