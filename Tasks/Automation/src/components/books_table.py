@@ -12,12 +12,12 @@ class BooksTable(BookStorePage):
         self.table_rows = ss(by.xpath("//div[@role='rowgroup']"))
         self.table_items_title = ss(by.xpath("//span[@class='mr-2']//a"))
         self.table_items_author = ss(by.xpath("//div[@class='rt-td'][3]"))
-        #  //div[@class='rt-td'][3]/text()
         self.table_items_publisher = ss(by.xpath("//div[@class='rt-td'][4]"))
-        #  //div[@class='rt-td'][4]/text()
+
     # Готові та працюючі методи
     def filter_book_by_filter_name(self, filter_name: str):
-        self.filter_field_name = s(by.xpath(f"// div[contains(text(), '{filter_name.title()}')]")).click()
+        self.filter_field_name = s(by.xpath(f"// div[contains(text(), '{filter_name.title()}')]")).should(
+            be.clickable).click()
 
     @staticmethod
     def get_sort_order():

@@ -20,14 +20,14 @@ class TestBookStore:
     def test_search_item(self, bookstore):
         git_book = Book(title='Git Pocket Guide')
         BookStorePage().enter_request(git_book.title)
+
     # Готові тести
     def test_get_books_from_table(self, bookstore):
-        book = Book(publisher="O'Reilly Media")
+        book = Book(author="Addy Osmani")
         books_table = BooksTable()
-        books = books_table.search_books_in_table(book.publisher)
+        books = books_table.search_books_in_table(book.author)
         for book in books:
             print(f'\n{book}')
-
         assert isinstance(books, list)
 
     def test_filter_table(self, bookstore):
@@ -43,6 +43,7 @@ class TestBookStore:
         books_table = BooksTable()
         unique_values = books_table.get_author_and_publisher('No Starch Press')
         print(unique_values)
+
     # Не зовсім готові тести
     def test_search_books_by_prompt(self, bookstore):
         books_table = BooksTable()

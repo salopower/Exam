@@ -14,10 +14,10 @@ class BookStorePage(object):
         return self.main_header.should(have.text(f'{text}'))
 
     def click_login_button(self):
-        self.login_button.click()
+        self.login_button.should(be.clickable).click()
 
     def enter_request(self, prompt):
-        self.search_box.set(prompt)
+        self.search_box.clear().set(prompt).press_enter()
         return self
 
     def book_list_by_publisher_api(self, publisher: str):
